@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<checkstyle version="2.3.2">
+<file name="/tmp/Example.php">
+ <error line="11" column="9" severity="error" message="Lorem ipsum dolor sit amet." source="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/>
+</file>
+</checkstyle>

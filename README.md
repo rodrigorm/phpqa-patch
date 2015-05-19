@@ -42,3 +42,24 @@ Make sure you have `~/.composer/vendor/bin/` in your path.
     $ phpqa patch-cpd --patch /tmp/patch.txt         \
                       --path-prefix /path/to/project \
                       /tmp/pmd-cpd.xml
+    phpqa dev-master by Rodrigo Moyle.
+
+    1 clones found:
+
+      -     /tmp/Example.php:11-11
+      -     /tmp/Example1.php:26-26
+
+## Patch PHPCS
+
+    $ git diff HEAD^1 > /tmp/patch.txt
+
+    $ phpcs --report=checkstyle -report-file="/tmp/checkstyle.xml" --standard="phpcs.xml" /path/to/project/
+
+    $ phpqa patch-cs --patch /tmp/patch.txt         \
+                     --path-prefix /path/to/project \
+                     /tmp/checkstyle.xml
+    phpqa dev-master by Rodrigo Moyle.
+
+    1 errors found:
+
+    Example.php:11 - ERROR: Lorem ipsum dolor sit amet.

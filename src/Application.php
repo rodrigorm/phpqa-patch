@@ -16,6 +16,7 @@ class Application extends AbstractApplication
 
         $this->add(new PatchPmdCommand);
         $this->add(new PatchCpdCommand);
+        $this->add(new PatchCsCommand);
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)
