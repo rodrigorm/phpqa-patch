@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="@project.version@" timestamp="2015-05-15 15:19:07.897153932-03:00">
+  <file name="/tmp/Example.php">
+    <violation beginline="11" endline="11" rule="ExampleRule" ruleset="Example Rules" package="+global" externalInfoUrl="http://example.org/rules/example.html#example" class="Example" priority="3">
+      Lorem ipsum dolor sit amet.
+    </violation>
+  </file>
+</pmd>
