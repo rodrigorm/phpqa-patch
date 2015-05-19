@@ -1,5 +1,7 @@
 # phpqa
 
+[![Build Status](https://travis-ci.org/rodrigorm/phpqa-patch.svg)](https://travis-ci.org/rodrigorm/phpqa-patch)
+
 **phpqa** is a command-line tool for PHPMD.
 
 ## Installation
