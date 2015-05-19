@@ -21,7 +21,7 @@ class PatchPmdTest extends PHPUnit_Framework_TestCase
             $patchpmd->execute(
                 __DIR__ . '/fixture/pmd.xml',
                 __DIR__ . '/fixture/patch.txt',
-                '/tmp/example/'
+                '/tmp/'
             )
         );
     }
