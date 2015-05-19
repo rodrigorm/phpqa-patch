@@ -15,6 +15,7 @@ class Application extends AbstractApplication
         parent::__construct('phpqa', 'dev-master');
 
         $this->add(new PatchPmdCommand);
+        $this->add(new PatchCpdCommand);
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)

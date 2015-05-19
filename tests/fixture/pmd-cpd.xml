@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+  <duplication lines="1" tokens="10">
+    <file path="/tmp/Example.php" line="11"/>
+    <file path="/tmp/Example1.php" line="26"/>
+  </duplication>
+</pmd-cpd>

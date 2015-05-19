@@ -32,3 +32,13 @@ Make sure you have `~/.composer/vendor/bin/` in your path.
     1 violations found:
 
     Example.php:11     Lorem ipsum dolor sit amet.
+
+## Patch PHPCPD
+
+    $ git diff HEAD^1 > /tmp/patch.txt
+
+    $ phpcpd --log-pmd /tmp/pmd-cpd.xml /path/to/project/
+
+    $ phpqa patch-cpd --patch /tmp/patch.txt         \
+                      --path-prefix /path/to/project \
+                      /tmp/pmd-cpd.xml
