@@ -17,11 +17,11 @@ class PatchPmd
         $changes  = array();
 
         foreach ($patch as $diff) {
-            $file           = substr($diff->getFrom(), 2);
+            $file           = substr($diff->getTo(), 2);
             $changes[$file] = array();
 
             foreach ($diff->getChunks() as $chunk) {
-                $lineNr = $chunk->getStart();
+                $lineNr = $chunk->getEnd();
 
                 foreach ($chunk->getLines() as $line) {
                     if ($line->getType() == Line::ADDED) {
