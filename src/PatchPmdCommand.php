@@ -56,5 +56,9 @@ class PatchPmdCommand extends AbstractCommand
                 );
             }
         }
+
+        if (count($violations)) {
+            return 1;
+        }
     }
 }

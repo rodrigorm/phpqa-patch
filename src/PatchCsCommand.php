@@ -55,5 +55,9 @@ class PatchCsCommand extends AbstractCommand
                 )
             );
         }
+
+        if (count($errors)) {
+            return 1;
+        }
     }
 }

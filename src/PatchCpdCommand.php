@@ -52,5 +52,9 @@ class PatchCpdCommand extends AbstractCommand
             }
             $output->writeln('');
         }
+
+        if (count($duplications)) {
+            return 1;
+        }
     }
 }
