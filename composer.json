@@ -24,7 +24,7 @@
             "Rodrigorm\\PhpqaPatch\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "scripts": {
         "tests": "phpunit"
     },
