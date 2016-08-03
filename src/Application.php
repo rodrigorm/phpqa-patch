@@ -35,6 +35,6 @@ class Application extends AbstractApplication
             exit;
         }
 
-        parent::doRun($input, $output);
+        return parent::doRun($input, $output);
     }
 }
