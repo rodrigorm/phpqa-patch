@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rodrigorm/phpqa-patch.svg)](https://travis-ci.org/rodrigorm/phpqa-patch)
 
-**phpqa** is a command-line tool for PHPMD.
+**phpqa** is a command-line tool for PHPMD, PHPCS and PHPCPD.
 
 ## Installation
 

@@ -1,6 +1,7 @@
 {
     "name": "rodrigorm/phpqa-patch",
-    "description": "PHP project.",
+    "description": "**phpqa** is a command-line tool for PHPMD, PHPCS and PHPCPD.",
+    "type": "library",
     "license": "GPL-2.0",
     "authors": [
         {
@@ -24,7 +25,6 @@
             "Rodrigorm\\PhpqaPatch\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "beta",
     "scripts": {
         "tests": "phpunit"
     },
