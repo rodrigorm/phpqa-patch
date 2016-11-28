@@ -1,17 +1,17 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use SebastianBergmann\Diff\Line;
 use SebastianBergmann\Diff\Parser as DiffParser;
 
-class PatchCpd
+class PMD
 {
     public function execute($xml, $patch, $prefix)
     {
         $result = array();
 
-        $cpd      = simplexml_load_file(realpath($xml));
+        $pmd      = simplexml_load_file(realpath($xml));
         $parser   = new DiffParser;
         $patch    = $parser->parse(file_get_contents($patch));
         $changes  = array();
@@ -35,12 +35,12 @@ class PatchCpd
             }
         }
 
-        foreach ($cpd->duplication as $duplication) {
-            foreach ($duplication->file as $file) {
-                $path = str_replace($prefix, '', $file->attributes()->path);
+        foreach ($pmd->file as $file) {
+            $path = str_replace($prefix, '', $file->attributes()->name);
 
-                $beginline = (int)$file->attributes()->line;
-                $endline = $beginline + ((int)$duplication->attributes()->lines - 1);
+            foreach ($file->violation as $violation) {
+                $beginline = (int)$violation->attributes()->beginline;
+                $endline = (int)$violation->attributes()->endline;
                 $lines = array();
 
                 for ($line = $beginline; $line <= $endline; $line++) {
@@ -53,7 +53,11 @@ class PatchCpd
                     continue;
                 }
 
-                $result[] = $duplication;
+                $result[] = array(
+                    'file' => $path,
+                    'message' => trim((string)$violation),
+                    'lines' => $lines
+                );
             }
         }
 

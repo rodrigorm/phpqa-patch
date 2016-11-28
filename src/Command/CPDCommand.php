@@ -1,6 +1,6 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch\Command;
 
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -8,15 +8,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PatchPmdCommand extends AbstractCommand
+class CPDCommand extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('patch-pmd')
+        $this->setName('cpd')
              ->addArgument(
                  'xml',
                  InputArgument::REQUIRED,
-                 'PHPMD XML Report'
+                 'PHPCPD XML Report'
              )
              ->addOption(
                  'patch',
@@ -34,30 +34,26 @@ class PatchPmdCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchpmd = new PatchPmd;
-        $violations = $patchpmd->execute(
+        $patchcpd = new Patch\CPD;
+        $duplications = $patchcpd->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),
             $input->getOption('path-prefix')
         );
 
-        $output->writeln(sprintf('%d violations found:', count($violations)));
+        $output->writeln(sprintf('%d clones found:', count($duplications)));
         $output->writeln('');
 
-        foreach ($violations as $violation) {
-            foreach ($violation['lines'] as $line) {
-                $output->writeln(
-                    sprintf(
-                        '%s:%s     %s',
-                        $violation['file'],
-                        $line,
-                        $violation['message']
-                    )
-                );
+        foreach ($duplications as $duplication) {
+            foreach ($duplication->file as $file) {
+                $beginline = (int)$file->attributes()->line;
+                $endline = $beginline + ((int)$duplication->attributes()->lines - 1);
+                $output->writeln(sprintf('  -     %s:%d-%d', $file->attributes()->path, $beginline, $endline));
             }
+            $output->writeln('');
         }
 
-        if (count($violations)) {
+        if (count($duplications)) {
             return 1;
         }
     }

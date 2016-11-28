@@ -1,6 +1,6 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use Symfony\Component\Console\Application as AbstractApplication;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,9 +14,9 @@ class Application extends AbstractApplication
     {
         parent::__construct('phpqa', 'dev-master');
 
-        $this->add(new PatchPmdCommand);
-        $this->add(new PatchCpdCommand);
-        $this->add(new PatchCsCommand);
+        $this->add(new Command\PMDCommand);
+        $this->add(new Command\CPDCommand);
+        $this->add(new Command\CSCommand);
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)

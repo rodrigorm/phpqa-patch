@@ -1,11 +1,11 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use SebastianBergmann\Diff\Line;
 use SebastianBergmann\Diff\Parser as DiffParser;
 
-class PatchCs
+class CS
 {
     public function execute($xml, $patch, $prefix)
     {

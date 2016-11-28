@@ -1,14 +1,14 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use PHPUnit_Framework_TestCase;
 
-class PatchCpdTest extends PHPUnit_Framework_TestCase
+class CPDTest extends PHPUnit_Framework_TestCase
 {
     public function testPatchCpdIsCalculatedCorrectly()
     {
-        $patchcpd = new PatchCpd;
+        $patchcpd = new CPD;
 
         $this->assertEquals(
             array(

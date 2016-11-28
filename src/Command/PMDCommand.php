@@ -1,6 +1,5 @@
 <?php
-
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch\Command;
 
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -8,15 +7,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PatchCsCommand extends AbstractCommand
+class PMDCommand extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('patch-cs')
+        $this->setName('pmd')
              ->addArgument(
                  'xml',
                  InputArgument::REQUIRED,
-                 'PHPCS XML Report'
+                 'PHPMD XML Report'
              )
              ->addOption(
                  'patch',
@@ -34,29 +33,30 @@ class PatchCsCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchcs = new PatchCs;
-        $errors = $patchcs->execute(
+        $patchpmd = new Patch\PMD;
+        $violations = $patchpmd->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),
             $input->getOption('path-prefix')
         );
 
-        $output->writeln(sprintf('%d errors found:', count($errors)));
+        $output->writeln(sprintf('%d violations found:', count($violations)));
         $output->writeln('');
 
-        foreach ($errors as $error) {
-            $output->writeln(
-                sprintf(
-                    '%s:%s - %s: %s',
-                    $error['file'],
-                    $error['line'],
-                    strtoupper($error['severity']),
-                    $error['message']
-                )
-            );
+        foreach ($violations as $violation) {
+            foreach ($violation['lines'] as $line) {
+                $output->writeln(
+                    sprintf(
+                        '%s:%s     %s',
+                        $violation['file'],
+                        $line,
+                        $violation['message']
+                    )
+                );
+            }
         }
 
-        if (count($errors)) {
+        if (count($violations)) {
             return 1;
         }
     }

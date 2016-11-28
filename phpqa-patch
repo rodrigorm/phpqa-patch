@@ -3,7 +3,7 @@
 
 $loaded = false;
 
-foreach (array(__DIR__ . '/../../autoload.php', __DIR__ . '/vendor/autoload.php') as $file) {
+foreach (array(__DIR__ . '/vendor/autoload.php', __DIR__ . '/../../autoload.php') as $file) {
     if (file_exists($file)) {
         require $file;
         $loaded = true;
@@ -19,5 +19,5 @@ if (!$loaded) {
     );
 }
 
-$application = new Rodrigorm\PhpqaPatch\Application;
+$application = new Rodrigorm\PHPQAPatch\Application;
 $application->run();

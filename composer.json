@@ -17,18 +17,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Rodrigorm\\PhpqaPatch\\": "src/"
+            "Rodrigorm\\PHPQAPatch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rodrigorm\\PhpqaPatch\\Tests\\": "tests/"
+            "Rodrigorm\\PHPQAPatch\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "tests": "phpunit"
     },
     "bin": [
-        "phpqa"
+        "phpqa-patch"
     ]
 }

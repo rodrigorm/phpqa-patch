@@ -1,6 +1,5 @@
 <?php
-
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch\Command;
 
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -8,15 +7,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PatchCpdCommand extends AbstractCommand
+class CSCommand extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('patch-cpd')
+        $this->setName('cs')
              ->addArgument(
                  'xml',
                  InputArgument::REQUIRED,
-                 'PHPCPD XML Report'
+                 'PHPCS XML Report'
              )
              ->addOption(
                  'patch',
@@ -34,26 +33,29 @@ class PatchCpdCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchcpd = new PatchCpd;
-        $duplications = $patchcpd->execute(
+        $patchcs = new Patch\CS;
+        $errors = $patchcs->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),
             $input->getOption('path-prefix')
         );
 
-        $output->writeln(sprintf('%d clones found:', count($duplications)));
+        $output->writeln(sprintf('%d errors found:', count($errors)));
         $output->writeln('');
 
-        foreach ($duplications as $duplication) {
-            foreach ($duplication->file as $file) {
-                $beginline = (int)$file->attributes()->line;
-                $endline = $beginline + ((int)$duplication->attributes()->lines - 1);
-                $output->writeln(sprintf('  -     %s:%d-%d', $file->attributes()->path, $beginline, $endline));
-            }
-            $output->writeln('');
+        foreach ($errors as $error) {
+            $output->writeln(
+                sprintf(
+                    '%s:%s - %s: %s',
+                    $error['file'],
+                    $error['line'],
+                    strtoupper($error['severity']),
+                    $error['message']
+                )
+            );
         }
 
-        if (count($duplications)) {
+        if (count($errors)) {
             return 1;
         }
     }

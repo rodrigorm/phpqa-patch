@@ -1,14 +1,14 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use PHPUnit_Framework_TestCase;
 
-class PatchCsTest extends PHPUnit_Framework_TestCase
+class CSTest extends PHPUnit_Framework_TestCase
 {
     public function testPatchCsIsCalculatedCorrectly()
     {
-        $patchcs = new PatchCs;
+        $patchcs = new CS;
 
         $this->assertEquals(
             array(

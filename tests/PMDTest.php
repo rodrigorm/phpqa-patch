@@ -1,14 +1,14 @@
 <?php
 
-namespace Rodrigorm\PhpqaPatch;
+namespace Rodrigorm\PHPQAPatch;
 
 use PHPUnit_Framework_TestCase;
 
-class PatchPmdTest extends PHPUnit_Framework_TestCase
+class PMDTest extends PHPUnit_Framework_TestCase
 {
     public function testPatchPmdIsCalculatedCorrectly()
     {
-        $patchpmd = new PatchPmd;
+        $patchpmd = new PMD;
 
         $this->assertEquals(
             array(
