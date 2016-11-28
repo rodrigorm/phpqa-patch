@@ -39,7 +39,7 @@ class HumbugTest extends PHPUnit_Framework_TestCase
                         'class' => 'Example',
                         'method' => 'bar',
                         'line' => 6,
-                        'diff' => '',
+                        'diff' => '--diff',
                         'tests' => [
                             'ExampleTest::testBar'
                         ],
@@ -54,7 +54,7 @@ class HumbugTest extends PHPUnit_Framework_TestCase
                         'class' => 'Example',
                         'method' => 'bar',
                         'line' => 11,
-                        'diff' => '',
+                        'diff' => '--diff',
                         'tests' => array(
                             'ExampleTest::testBar'
                         ),
@@ -69,7 +69,7 @@ class HumbugTest extends PHPUnit_Framework_TestCase
                         'class' => 'Example',
                         'method' => 'bar',
                         'line' => 11,
-                        'diff' => '',
+                        'diff' => '--diff',
                         'tests' => [
                             'ExampleTest::testBar'
                         ],
@@ -84,7 +84,7 @@ class HumbugTest extends PHPUnit_Framework_TestCase
                         'class' => 'Example',
                         'method' => 'bar',
                         'line' => 11,
-                        'diff' => '',
+                        'diff' => '--diff',
                         'tests' => [
                             'ExampleTest::testBar'
                         ],
