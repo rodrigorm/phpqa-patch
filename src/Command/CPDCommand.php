@@ -2,6 +2,7 @@
 
 namespace Rodrigorm\PHPQAPatch\Command;
 
+use Rodrigorm\PHPQAPatch\CPD;
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -34,7 +35,7 @@ class CPDCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchcpd = new Patch\CPD;
+        $patchcpd = new CPD;
         $duplications = $patchcpd->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),

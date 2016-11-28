@@ -1,6 +1,7 @@
 <?php
 namespace Rodrigorm\PHPQAPatch\Command;
 
+use Rodrigorm\PHPQAPatch\PMD;
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,7 +34,7 @@ class PMDCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchpmd = new Patch\PMD;
+        $patchpmd = new PMD;
         $violations = $patchpmd->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),

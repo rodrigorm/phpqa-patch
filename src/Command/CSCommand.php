@@ -1,6 +1,7 @@
 <?php
 namespace Rodrigorm\PHPQAPatch\Command;
 
+use Rodrigorm\PHPQAPatch\CS;
 use Symfony\Component\Console\Command\Command as AbstractCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,7 +34,7 @@ class CSCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $patchcs = new Patch\CS;
+        $patchcs = new CS;
         $errors = $patchcs->execute(
             $input->getArgument('xml'),
             $input->getOption('patch'),
