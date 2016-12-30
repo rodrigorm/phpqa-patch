@@ -18,6 +18,7 @@ class Application extends AbstractApplication
         $this->add(new Command\CPDCommand);
         $this->add(new Command\CSCommand);
         $this->add(new Command\HumbugCommand);
+        $this->add(new Command\CoverageCommand);
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)

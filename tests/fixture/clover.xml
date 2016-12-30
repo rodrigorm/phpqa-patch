@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1483058051">
+  <project timestamp="1483058051">
+    <package name="App">
+      <file name="/tmp/Example.php">
+        <class name="Example" namespace="App">
+          <metrics complexity="8" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="15" elements="22" coveredelements="16"/>
+        </class>
+        <line num="9" type="method" name="engine" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="61" ncloc="61" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="15" elements="22" coveredelements="16"/>
+      </file>
+    </package>
+    <metrics files="148" loc="9431" ncloc="7773" classes="127" methods="478" coveredmethods="395" conditionals="0" coveredconditionals="0" statements="2427" coveredstatements="2071" elements="2905" coveredelements="2466"/>
+  </project>
+</coverage>
